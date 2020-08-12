@@ -1,0 +1,2433 @@
+{
+	"info": {
+		"_postman_id": "1c312dd1-e9ac-43af-8178-af47da5c66e5",
+		"name": "user-login-testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VHSMoAppTestMetProdSLRH@Verity.org  api login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdSLRH@Verity.org API login ios. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestMetProdSLRH@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProdSLRH@Verity.org  api logout  ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdSLRH@Verity.org logout ios. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProdSLRH@Verity.org  api login android",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdSLRH@Verity.org API login android. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_android}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestMetProdSLRH@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{android_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProdSLRH@Verity.org api logout android",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdSLRH@Verity.org logout android. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_android}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTestSLRH@Verity.org  api login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTestSLRH@Verity.org API login ios. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestMetTestSLRH@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTestSLRH@Verity.org api logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTestSLRH@Verity.org logout . Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProd1SMC@Verity.org  API ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProd1SMC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetProd1SMC}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProd1SMC@Verity.org api logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProd1SMC@Verity.org logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest1SMC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest1SMC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetTest1SMC}}\", \"password\": \"{{test_user_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest1SMC@Verity.org api logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest1SMC@Verity.org logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSmoAppTestMetProdOCH@Verity.org  API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSmoAppTestMetProdOCH@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSmoAppTestMetProdOCH}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSmoAppTestMetProdOCH@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSmoAppTestMetProdOCH@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSmoAppTestMetTestOCH@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSmoAppTestMetTestOCH@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSmoAppTestMetTestOCH}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSmoAppTestMetTestOCH@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSmoAppTestMetTestOCH@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestProdSMCC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestProdSMCC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestProdSMCC}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestProdSMCC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestProdSMCC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest2SMCC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest2SMCC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetTest2SMCC}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest2SMCC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest2SMCC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMet1ProdSFMC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMet1ProdSFMC@Verity.org API login Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMet1ProdSFMC}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMet1ProdSFMC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMet1ProdSFMC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMet1TestSFMC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMet1TestSFMC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestMet1TestSFMC@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMet1TestSFMC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMet1TestSFMC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHS1MoAppTestMetProdSVMC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHS1MoAppTestMetProdSVMC@Verity.org API login Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHS1MoAppTestMetProdSVMC@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHS1MoAppTestMetProdSVMC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHS1MoAppTestMetProdSVMC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHS1MoAppTestMetTestSVMC@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHS1MoAppTestMetTestSVMC@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHS1MoAppTestMetTestSVMC@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHS1MoAppTestMetTestSVMC@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHS1MoAppTestMetTestSVMC@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoApp1TestMetProdPerm2@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoApp1TestMetProdPerm2@Verity.org API login Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoApp1TestMetProdPerm2}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoApp1TestMetProdPerm2@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoApp1TestMetProdPerm2@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoApp1TestMetTestPerm2@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoApp1TestMetTestPerm2@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoApp1TestMetTestPerm2}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoApp1TestMetTestPerm2@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoApp1TestMetTestPerm2@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProdPerm1@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdPerm1@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestMetProdPerm1@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProdPerm1@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProdPerm1@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTestPerm1@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTestPerm1@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetTestPerm1}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTestPerm1@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTestPerm1@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiProd@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiProd@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestNotiProd@verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiProd@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiProd@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiTest@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiTest@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestNotiTest}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiProd@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiProd@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMobileAppTest@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMobileAppTest@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMobileAppTest@Verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMobileAppTest@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMobileAppTest@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gitlab-incoming@ad.Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('gitlab-incoming@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{gitlab_incoming}}\", \"password\": \"{{gitlab_incoming_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gitlab-incoming@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('gitlab-incoming@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestAdminPROD@Verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestAdminPROD@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestAdminPROD@verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestAdminPROD@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestAdminPROD@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest@Verity.org  API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest@Verity.org  user API login Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetTest}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetTest@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetTest@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProd@Verity.org  API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProd@Verity.org API login Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"{{VHSMoAppTestMetProd}}\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestMetProd@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestMetProd@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiProd@Verity.org  API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiProd@Verity.org API login. Response code is 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestNotiProd@verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiProd@Verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiProd@Verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiTest@verity.org API login ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46163de8-b143-41bf-817e-5431231f4848",
+						"exec": [
+							"pm.test(environment.VHSMoAppTestNotiTest + ' API login. Response code is 401', function() {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\": { \"email\": \"VHSMoAppTestNotiTest.verity.org\", \"password\": \"{{test_users_password}}\", \"deviceType\": \"{{ios_device_type}}\" } }\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/login.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VHSMoAppTestNotiTest@verity.org API logout ios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1f18628-08f4-4be4-944b-7fe21acad500",
+						"exec": [
+							"pm.test('VHSMoAppTestNotiTest@verity.org API logout. Response code is 200', function() {",
+							"        pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "{{ua_iphone5}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/api/{{api_version}}/logout.json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"api",
+						"{{api_version}}",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

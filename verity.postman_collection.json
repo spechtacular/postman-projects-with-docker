@@ -1,0 +1,1310 @@
+{
+	"info": {
+		"name": "verity",
+		"_postman_id": "915794e9-6a3f-a1ee-2424-35fb7d309c29",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "fail, login to metrics role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03576a66-c273-4b6a-ad25-27efeafad22e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('metrics user login, response code is 401', function() {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(401);",
+							"",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "abc@xyz.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/login",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"login"
+					]
+				},
+				"description": "login to get metrics role to fetch token"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, register invalid role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b8a231d-0818-4087-a905-9e42e4a58a89",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail invalid register role, response code is 422', function() {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(422);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "metrics10@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "xxxxx",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/register",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"register"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "register metrics role user account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "abfd74fc-307d-48db-8424-6f5d014ace69",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('register metrics user, response code is 201', function () {",
+							"   var jsonData = pm.response.json();",
+							"   pm.environment.set(\"metrics_uid\", jsonData[\"id\"]);",
+							"   pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "metrics10@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "metrics",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/register",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"register"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "login to metrics role to fetch token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1ac8404-979e-43b0-99c0-b3c6741e6976",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('metrics user login, response code is 200', function() {",
+							"   pm.response.to.be.ok;",
+							"   var jsonData = pm.response.json();",
+							"   pm.environment.set(\"metrics_token\", jsonData[\"token\"]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "metrics10@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/login",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"login"
+					]
+				},
+				"description": "login to get metrics role to fetch token"
+			},
+			"response": []
+		},
+		{
+			"name": "get all metrics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84324ad0-9807-4b78-9a71-b60e049f036d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('list all metrics, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});  ",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics/",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics",
+						""
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "get metrics filtered by timestring(ts), facility(fac), and section(sec) with optional pagination offset and limit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5dbc921-3176-4d6e-bf9a-4fb711488901",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('filter metrics by timestring, facility, section, and pagination, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?ts=2017-12-15&fac=och&sec=18&offset=0&limit=5",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "2017-12-15",
+							"equals": true
+						},
+						{
+							"key": "fac",
+							"value": "och",
+							"equals": true
+						},
+						{
+							"key": "sec",
+							"value": "18",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "get metrics filtered by startdate, enddate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8327c6f7-8c2e-43d1-b6de-040d0e2bccb1",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('filter metrics by startdate, enddate, limit, response code is 200', function() {",
+							"     pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?startdate=2017-12-10&enddate=2017-12-14&limit=1000",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "startdate",
+							"value": "2017-12-10",
+							"equals": true
+						},
+						{
+							"key": "enddate",
+							"value": "2017-12-14",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "1000",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "get metrics filtered by startdate, but no enddate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "046c51ad-6a32-4153-ad31-a847cf1dbe6e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('filter metrics by startdate, limit response code is 200', function() {",
+							"     pm.response.to.be.ok;",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?startdate=2017-12-10&limit=5",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "startdate",
+							"value": "2017-12-10",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, get metrics filtered by enddate, but no startdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "771a9f27-de98-40aa-a3e3-343aa232a0c9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail metrics filter no startdate, response code is 422', function() {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(422);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?enddate=2017-12-10&limit=1000",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "enddate",
+							"value": "2017-12-10",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "1000",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, get metrics filtered by invalid format startdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82d6ef4b-dfb2-496f-bcb0-de60cb94b160",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail metrics filter startdate, response code is 422', function() {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(422);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?startdate=2017-118&limit=1000",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "startdate",
+							"value": "2017-118",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "1000",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, get metrics filtered by invalid format orderby parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "08a183b8-2672-45e6-9bfc-f4da6e95a5a0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail metrics filter orderby, response code is 422', function() {",
+							"     pm.response.to.be.not.ok;",
+							"     pm.response.to.have.status(422);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?startdate=2017-11-18&limit=1000&orderby=false",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "startdate",
+							"value": "2017-11-18",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "1000",
+							"equals": true
+						},
+						{
+							"key": "orderby",
+							"value": "false",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, get metrics filtered by invalid format enddate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d8d5e32-9d81-434f-854e-28cc24bb4da6",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail filter metrics invalid enddate, response code is 422', function () {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(422);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?startdate=2017-12&limit=1000",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "startdate",
+							"value": "2017-12",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "1000",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "fail, get user account by email address using metrics role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2dbe140e-c6db-4292-8b84-4219f943b0c2",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail get user by email address, response code is 403', function () {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(403);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users?email_address=admin1@verity.org",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users"
+					],
+					"query": [
+						{
+							"key": "email_address",
+							"value": "admin1@verity.org",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "fail, login as admin user role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20f651ee-5d2d-4877-b3a1-5b05ef2a0f91",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail admin login, response code is 401', function () {",
+							"  pm.response.to.be.not.ok;",
+							"  pm.response.to.have.status(401);",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "admin1@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ghfjgukjde",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/login",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"login"
+					]
+				},
+				"description": "login as admin user"
+			},
+			"response": []
+		},
+		{
+			"name": "register admin role user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9fd0af0-98d1-435a-9cca-730216b0117a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('register admin use, response code is 201', function () {",
+							"   var jsonData = pm.response.json();",
+							"   pm.environment.set(\"admin_uid\", jsonData[\"id\"]);",
+							"   pm.response.to.have.status(201);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "admin1@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "abcdefgh",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/register",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"register"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "login as admin user role to fetch token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a6e17ae-c175-4bbc-921f-b74eee1f8172",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('login admin user, response code is 200', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"admin_token\", jsonData[\"token\"]);",
+							"    pm.response.to.be.ok;",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email_address",
+							"value": "admin1@verity.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abcdefgh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/login",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"login"
+					]
+				},
+				"description": "login as admin user"
+			},
+			"response": []
+		},
+		{
+			"name": "admin role:get metrics filtered by timestring(ts), facility(fac)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "def4f1eb-b15d-4532-bd3b-1569980d11de",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('admin role, get metrics filtered by timestring, facility, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/metrics?ts=2017-12-12&fac=och",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "2017-12-12",
+							"equals": true
+						},
+						{
+							"key": "fac",
+							"value": "och",
+							"equals": true
+						}
+					]
+				},
+				"description": "fetch metrics filtered by date(id), facility(fac), and section(sec)"
+			},
+			"response": []
+		},
+		{
+			"name": "list all users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ccc301c-31a1-423d-8bcb-3a5467538f05",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('list all users, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users"
+					]
+				},
+				"description": "list all users in redis"
+			},
+			"response": []
+		},
+		{
+			"name": "get user account by email address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38b16814-e0ce-40e5-87dd-3e32ab35b640",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('list admin1@verity.org user,, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users?email_address=admin1@verity.org",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users"
+					],
+					"query": [
+						{
+							"key": "email_address",
+							"value": "admin1@verity.org",
+							"equals": true
+						}
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "delete metrics user by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "342673ac-d529-4f82-9333-1d5aea3c334b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('delete metrics user, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users/{{metrics_uid}}",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users",
+						"{{metrics_uid}}"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "delete admin user by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "362ee685-7968-4cd3-8fb4-4c44c4ef35eb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('delete admin user, response code is 200', function () {",
+							"  pm.response.to.be.ok;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users/{{admin_uid}}",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users",
+						"{{admin_uid}}"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "fail delete admin user using metrics role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae0d236c-295d-4814-8209-47e21e338bf9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail delete admin user, response code is 403', function () {",
+							"    pm.response.to.be.not.ok;",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{metrics_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users/{{admin_uid}}",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users",
+						"{{admin_uid}}"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "fail delete admin user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e33de307-d1d1-4143-ad7f-1f39965b1809",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('fail delete admin user, response code is 404', function () {",
+							"  pm.response.to.be.not.ok;",
+							"  pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{admin_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://{{node_url}}:{{node_port}}/api/{{api_version}}/admin/users/999999",
+					"protocol": "http",
+					"host": [
+						"{{node_url}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"api",
+						"{{api_version}}",
+						"admin",
+						"users",
+						"999999"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

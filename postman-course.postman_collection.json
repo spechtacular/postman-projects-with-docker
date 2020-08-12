@@ -1,0 +1,792 @@
+{
+	"info": {
+		"_postman_id": "f2034527-aa12-4e9a-86df-a10f70428a56",
+		"name": "postman-course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "trello create board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cba5cc81-3e0d-4498-ba01-49ef5e0543fc",
+						"exec": [
+							"pm.test(\"create trello board, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"console.log(\"json:\"+JSON.stringify(jsonData));",
+							"pm.environment.set(\"firstBoardId\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?key={{trelloApiKey}}&token={{trelloToken}}&name=Postman Course",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						},
+						{
+							"key": "name",
+							"value": "Postman Course"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello list boards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b282a9d0-1bce-4f40-8f9d-637bec830968",
+						"exec": [
+							"pm.test(\"List trello boards. Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"console.log(\"parentBoard:\"+pm.globals.get(\"parentBoard\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/members/me/boards?key={{trelloApiKey}}&token={{trelloToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"members",
+						"me",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello get new board metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b235e69-47ac-498a-953f-6fdfebcb1d05",
+						"exec": [
+							"pm.test(\"get new board metadata, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"validate new board metadata\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(boardName);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/:boardId?key={{trelloApiKey}}\n&token={{trelloToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						":boardId"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}\n"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "boardId",
+							"value": "5d82839e25505a52b18c7ad8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello add TODO List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c340b7-b337-4072-9c22-2262d02330a4",
+						"exec": [
+							"pm.test(\"Add a TODO list, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"validate add TODO list results\", function () {",
+							"    pm.expect(jsonData.name).to.eql(\"TODO\");",
+							"    pm.expect(jsonData.closed).to.eql(false);",
+							"    pm.expect(jsonData.idBoard).to.eql(pm.globals.get(\"parentBoard\"));",
+							"});",
+							"",
+							"pm.globals.set(\"parentList\",jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/lists/?key={{trelloApiKey}}&token={{trelloToken}}&idBoard=5d828c2b57c4e87de3107724&name=TODO&pos=top&closed=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"lists",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						},
+						{
+							"key": "idBoard",
+							"value": "5d828c2b57c4e87de3107724"
+						},
+						{
+							"key": "name",
+							"value": "TODO"
+						},
+						{
+							"key": "pos",
+							"value": "top"
+						},
+						{
+							"key": "closed",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello add DONE List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c340b7-b337-4072-9c22-2262d02330a4",
+						"exec": [
+							"pm.test(\"Add a TODO list, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"DONE\");",
+							"    pm.expect(jsonData.closed).to.eql(false);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/lists/?key={{trelloApiKey}}&token={{trelloToken}}&idBoard=5d828c2b57c4e87de3107724&name=DONE&pos=top&closed=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"lists",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						},
+						{
+							"key": "idBoard",
+							"value": "5d828c2b57c4e87de3107724"
+						},
+						{
+							"key": "name",
+							"value": "DONE"
+						},
+						{
+							"key": "pos",
+							"value": "top"
+						},
+						{
+							"key": "closed",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello add Learn Postman Card to TODO list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c340b7-b337-4072-9c22-2262d02330a4",
+						"exec": [
+							"pm.test(\"Add a TODO list, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"validate card added to TODO list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"Learn Postman\");",
+							"    pm.expect(jsonData.closed).to.eql(false);",
+							"    pm.expect(jsonData.idBoard).to.eql(pm.globals.get(\"parentBoard\"));",
+							"    pm.expect(jsonData.idList).to.eql(pm.globals.get(\"parentList\"));",
+							"    pm.expect(jsonData.badges.votes).to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/cards/?key={{trelloApiKey}}&token={{trelloToken}}&name=Learn Postman&idList=5d828d7b4d9cc63d6cfb38c1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						},
+						{
+							"key": "name",
+							"value": "Learn Postman"
+						},
+						{
+							"key": "idList",
+							"value": "5d828d7b4d9cc63d6cfb38c1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello copy Learn Postman Card to DONE list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c340b7-b337-4072-9c22-2262d02330a4",
+						"exec": [
+							"pm.test(\"move card to DONE list, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"validate card after move\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"Learn Postman\");",
+							"    pm.expect(jsonData.closed).to.eql(false);",
+							"    pm.expect(jsonData.idBoard).to.eql(pm.globals.get(\"parentBoard\"));",
+							"    pm.expect(jsonData.idList).to.eql(pm.globals.get(\"parentList\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/cards/:id?key={{trelloApiKey}}&token={{trelloToken}}&name=Learn Postman&idList=5d8290057ad46f06a597e56c&idBoard=5d828c2b57c4e87de3107724",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						":id"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						},
+						{
+							"key": "name",
+							"value": "Learn Postman"
+						},
+						{
+							"key": "idList",
+							"value": "5d8290057ad46f06a597e56c"
+						},
+						{
+							"key": "idBoard",
+							"value": "5d828c2b57c4e87de3107724"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5d828eac40f3db5b165e6f84",
+							"description": "source card id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello delete board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c340b7-b337-4072-9c22-2262d02330a4",
+						"exec": [
+							"pm.test(\"delete a board, Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "8ba2c269d40e9e0e2a8b3a4ec29ddd24",
+							"description": "API key",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "ecdf4cf102ccb8f63105ef3e2e24af845ffb6d369ac1d0cae1b1522abcf48688",
+							"description": "user token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "udemy postman course",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.trello.com/1/boards/:id?key={{trelloApiKey}}&token={{trelloToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						":id"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5d8baf3afa392e0f32d148f7",
+							"description": "source card id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trello list boards after delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b282a9d0-1bce-4f40-8f9d-637bec830968",
+						"exec": [
+							"pm.test(\"List trello boards. Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"console.log(\"parentBoard:\"+pm.globals.get(\"parentBoard\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c13502d8-9758-44de-8b2c-f629145c1ca0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/members/me/boards?key={{trelloApiKey}}&token={{trelloToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"members",
+						"me",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloApiKey}}",
+							"description": "API key"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}",
+							"description": "user token"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
